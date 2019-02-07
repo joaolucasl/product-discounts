@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+  discounts-server:
+    build: discounts/
+    ports:
+      - 9229:9229
+      - 3000:3000
+  mongodb:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
+    driver: local

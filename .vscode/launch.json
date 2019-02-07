@@ -1,0 +1,14 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Docker: Attach to Node",
+            "type": "node",
+            "request": "attach",
+            "remoteRoot": "/usr/src/app",
+            "localRoot": "${workspaceFolder}/discounts",
+            "port": 9229,
+            "protocol": "auto"
+        }
+    ]
+}

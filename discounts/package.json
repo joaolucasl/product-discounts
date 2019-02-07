@@ -1,0 +1,19 @@
+{
+  "name": "@chumlee/discounts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node --inspect=0.0.0.0 bin/www",
+    "test": "ava"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "hapi": "18.1.0",
+    "yenv": "^2.1.0"
+  },
+  "devDependencies": {
+    "ava": "^1.2.1"
+  }
+}
