@@ -1,5 +1,6 @@
-const Hapi = require('hapi')
 const env = require('yenv')()
+const Hapi = require('hapi')
+const mongoose = require('mongoose')
 
 const server = Hapi.server({
   port: env.PORT,

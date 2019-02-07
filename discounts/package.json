@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "hapi": "18.1.0",
+    "mongoose": "^5.4.10",
     "yenv": "^2.1.0"
   },
   "devDependencies": {

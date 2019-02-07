@@ -6,7 +6,9 @@ services:
     ports:
       - 9229:9229
       - 3000:3000
-  mongodb:
+    depends_on:
+      - mongo
+  mongo:
     image: mongo
     ports:
       - 27017:27017

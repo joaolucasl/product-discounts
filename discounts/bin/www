@@ -2,17 +2,20 @@
 
 const server = require('../src/index.js')
 const http = require('http')
+const mongoose = require('mongoose')
+const env = require('yenv')()
 
 const port = (process.env.PORT || '3000')
 
+
 const init = async () => {
+    await mongoose.connect(env.MONGO_URI, { useNewUrlParser: true })
     await server.start()
-    console.log(`Server running at ${server.info.uri}`)
+
+    console.log(`Server is listening on port ${env.PORT}`)
 }
 
-process.on('unhandledRejection', (err) => {
+init().catch((err) => {
     console.error(err)
     process.exit(1)
 })
-
-init()
