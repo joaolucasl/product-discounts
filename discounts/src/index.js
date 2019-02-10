@@ -1,27 +1,14 @@
 const env = require('yenv')()
-const Hapi = require('hapi')
-const mongoose = require('mongoose')
+const path = require('path')
+const grpc = require('grpc-kit')
+const server = grpc.createServer();
+const discountService = require('./application/services/discountService')
 
-const server = Hapi.server({
-  port: env.PORT,
-  host: env.HOST
-})
-
-server.route({
-  method: 'GET',
-  path: '/',
-  handler: (request, h) => {
-    return 'This is the response from the root path';
-  }
-})
-
-server.route({
-  method:'GET',
-  path:'/{name}',
-  handler: (request, h) => {
-    return 'This is the response from the /{name} path and the value is ' +
-      encodeURIComponent(request.params.name) + '!'
-  }
+server.use({
+  protoPath: path.resolve(__dirname, "interface/discount/DiscountService.proto"),
+  packageName: "discount",
+  serviceName: "DiscountService",
+  routes: discountService
 })
 
 module.exports = server

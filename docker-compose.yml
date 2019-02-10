@@ -1,7 +1,7 @@
 version: '2'
 
 services:
-  discounts-server:
+  discounts:
     build: discounts/
     ports:
       - 9229:9229

@@ -10,7 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "hapi": "18.1.0",
+    "@grpc/proto-loader": "^0.4.0",
+    "@types/mongoose": "^5.3.12",
+    "grpc": "^1.18.0",
+    "grpc-kit": "^0.2.0",
     "mongoose": "^5.4.10",
     "yenv": "^2.1.0"
   },
