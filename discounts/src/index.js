@@ -1,7 +1,6 @@
-const env = require('yenv')()
 const path = require('path')
 const grpc = require('grpc-kit')
-const server = grpc.createServer();
+const server = grpc.createServer()
 const discountService = require('./application/services/discountService')
 
 server.use({

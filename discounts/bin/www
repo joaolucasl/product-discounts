@@ -1,19 +1,15 @@
 #!/usr/bin/env node
+require('dotenv').load()
 
 const server = require('../src/index.js')
-const http = require('http')
-const mongoose = require('mongoose')
-const env = require('yenv')()
-
-const port = (process.env.PORT || '3000')
-
+const { db } = require('../src/infrastructure/database')
 
 const init = async () => {
-    await mongoose.connect(env.MONGO_URI, { useNewUrlParser: true })
-    
-    server.listen(`${env.HOST}:${env.PORT}`)
+    await db.select(1) // MySQL Connection Pre-Check
 
-    console.log(`Server is listening on port ${env.PORT}`)
+    server.listen(`${process.env.HOST}:${process.env.PORT}`)
+
+    console.log(`Server is listening on port ${process.env.PORT}`)
 }
 
 init().catch((err) => {
