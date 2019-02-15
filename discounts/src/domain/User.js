@@ -6,10 +6,6 @@ class User {
         this.lastName = params.lastName
         this.dateOfBirth = new Date(params.dateOfBirth)
     }
-
-    static fromDB(dbObject) {
-        return new User(dbObject)
-    }
 }
 
 module.exports = User
