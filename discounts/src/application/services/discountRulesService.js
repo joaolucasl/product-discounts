@@ -2,22 +2,46 @@ const vm = require('vm')
 const UserRepository = require('../../infrastructure/repositories/userRepository')
 
 const calculateDiscount = async (discountRules, { user, product }) => {
-    const discount = discountRules.reduce((totalDiscount, rule) => totalDiscount += applyRule(rule.rule, { user, product }), 0.0)
 
-    return discount
+    const discounts = discountRules.map(rule => getDiscountParamsFromRule(rule, { user, product }))
+
+    const finalDiscount = calculateFinalDiscount(discounts)
+
+    return finalDiscount
 }
 
-const applyRule = (rule, { user, product }) => {
+const calculateFinalDiscount = (discountParameters) => {
+    // If we have more than one MAX_DISCOUNT, we assume the greatest percentage as the right one
+    const maxDiscount = discountParameters
+        .filter(params => params.type == 'MAX_DISCOUNT')
+        .reduce((currentMax, params) => Math.max(currentMax, params.percentage), 0)
+
+    const discount = discountParameters
+        .filter(params => params.type == 'DISCOUNT')
+        .reduce((totalDiscount, param) => totalDiscount += param.percentage, 0.0)
+
+    const finalDiscount = (discount < maxDiscount) ? discount : maxDiscount
+
+    return finalDiscount
+}
+
+const getDiscountParamsFromRule = (rule, { user, product }) => {
     const context = {
-        discount: 0.0,
+        percentage: 0.0,
         user: user,
         product: product,
         now: new Date()
     }
 
-    vm.runInNewContext(rule, context)
+    try {
+        vm.runInNewContext(rule.rule, context)
+    } catch (ex) {
+        console.error(ex)
+    }
 
-    return context.discount;
+    const params = { percentage: context.percentage, type: rule.type };
+
+    return params;
 }
 
 module.exports = {
