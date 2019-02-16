@@ -1,6 +1,7 @@
-# CHUMLEE [WORK IN PROGRESS]
+# CHUMLEE 
+## [WORK IN PROGRESS]
 > A multi-application service that manages Products and customised Discounts for different Users.
-
+![](https://i.imgur.com/dvA8rEa.jpg)
 
 ## Running
 
