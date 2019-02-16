@@ -12,6 +12,24 @@ services:
     networks:
       - api
 
+  products:
+    build: products/
+    ports:
+      - 5000:5000
+      - 5005:5005
+    depends_on:
+      - mariadb
+    networks:
+      - api
+    command: sh -c "sh ./scripts/wait.sh mariadb && java -jar products.jar"
+    environment:
+      DATABASE_URI: jdbc:mysql://mariadb/chumlee
+      MYSQL_USER: dev
+      MYSQL_PASSWORD: CHUML33
+      SERVER_PORT: 5000
+      JAVA_TOOL_OPTIONS: >
+        -Xdebug -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005
+
   mariadb:
     image: mariadb:10
     ports:
@@ -27,7 +45,6 @@ services:
       - ./database/schema.sql:/docker-entrypoint-initdb.d/schema.sql:ro
     networks:
       - api
-    
 
 volumes:
   mysql-data:
