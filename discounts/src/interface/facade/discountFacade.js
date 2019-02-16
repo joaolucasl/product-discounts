@@ -10,7 +10,7 @@ const getDiscount = async (userId, productId) => {
     const discountRules = await DiscountRulesRepository.findAll()
     const product = await ProductRepository.findByExternalId(productId)
 
-    const discount = await DiscountRulesService.calculateDiscount(discountRules, { user })
+    const discount = await DiscountRulesService.calculateDiscount(discountRules, { user, product })
 
     const price = new Decimal(product.price)
     const amount = Decimal.sub(price, Decimal.mul(price, discount))
