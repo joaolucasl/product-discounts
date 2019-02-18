@@ -12,12 +12,16 @@ version = "0.0.1"
 
 repositories {
     mavenCentral()
+    jcenter()
 }
 
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
-    implementation("io.javalin:javalin:2.6.0")
-    implementation("org.slf4j:slf4j-simple:1.7.25")
+    implementation("org.koin:koin-spark:1.0.1")
+    implementation("org.slf4j:slf4j-api:1.7.5")
+    implementation("org.slf4j:slf4j-simple:1.7.5")
+    implementation("io.github.microutils:kotlin-logging:1.6.24")
+    implementation("com.google.code.gson:gson:2.8.5")
 }
 
 application {
