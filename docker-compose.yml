@@ -23,6 +23,8 @@ services:
       - api
     command: sh -c "sh ./scripts/wait.sh mariadb && java -jar products.jar"
     environment:
+      DISCOUNTS_SERVER: discounts
+      DISCOUNTS_PORT: 3000
       DATABASE_URI: jdbc:mysql://mariadb/chumlee
       DATABASE_USER: dev
       DATABASE_PASSWORD: CHUML33

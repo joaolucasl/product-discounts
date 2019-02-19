@@ -1,5 +1,6 @@
 package com.github.joaolucasl.chumlee.products.interfaces.controllers
 
+import com.github.joaolucasl.chumlee.products.application.services.DiscountCalculationService
 import com.github.joaolucasl.chumlee.products.application.services.ProductsService
 import com.github.joaolucasl.chumlee.products.infrastructure.transformers.JsonTransformer
 import org.koin.spark.SparkController
@@ -8,7 +9,8 @@ import spark.Spark.get
 import spark.Spark.path
 
 class ProductsController(
-    private val productsService: ProductsService
+    private val productsService: ProductsService,
+    private val discountCalculationService: DiscountCalculationService
 ) : SparkController {
     private val jsonTransformer = JsonTransformer()
 
@@ -21,6 +23,7 @@ class ProductsController(
     fun getProducts() = Route { _, response ->
         response.type("application/json")
 
+        discountCalculationService.getDiscounts(listOf(), "")
         val products = productsService.listProducts()
 
         ProductsListDTO(products)

@@ -5,7 +5,7 @@ const discountController = require('./interface/discount/discountController')
 
 server.use({
   protoPath: path.resolve(__dirname, "interface/discount/DiscountService.proto"),
-  packageName: "discount",
+  packageName: "com.github.joaolucasl.chumlee",
   serviceName: "DiscountService",
   routes: discountController
 })
