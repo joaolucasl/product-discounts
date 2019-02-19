@@ -24,8 +24,8 @@ services:
     command: sh -c "sh ./scripts/wait.sh mariadb && java -jar products.jar"
     environment:
       DATABASE_URI: jdbc:mysql://mariadb/chumlee
-      MYSQL_USER: dev
-      MYSQL_PASSWORD: CHUML33
+      DATABASE_USER: dev
+      DATABASE_PASSWORD: CHUML33
       SERVER_PORT: 5000
       JAVA_TOOL_OPTIONS: >
         -Xdebug -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005

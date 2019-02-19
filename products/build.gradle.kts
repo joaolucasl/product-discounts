@@ -22,6 +22,11 @@ dependencies {
     implementation("org.slf4j:slf4j-simple:1.7.5")
     implementation("io.github.microutils:kotlin-logging:1.6.24")
     implementation("com.google.code.gson:gson:2.8.5")
+
+    implementation("org.jdbi:jdbi3-core:3.5.1")
+    implementation("org.jdbi:jdbi3-kotlin:3.5.1")
+    implementation("org.jdbi:jdbi3-kotlin-sqlobject:3.5.1")
+    implementation("mysql:mysql-connector-java:8.0.13")
 }
 
 application {
