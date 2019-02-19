@@ -7,6 +7,13 @@ const findByExternalId = async (id) => {
     return ProductModel.fromDB(product)
 }
 
+const findByExternalIds = async (idList) => {
+  const products = await db.select().from('products').whereIn('external_id', idList)
+
+  return products.map(prod => ProductModel.fromDB(prod))
+}
+
 module.exports = {
-  findByExternalId
+  findByExternalId,
+  findByExternalIds
 }
