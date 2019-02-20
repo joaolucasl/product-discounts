@@ -16,11 +16,7 @@
   * [How can this project be improved?](#how-can-this-project-be-improved-)
   * [Trivia](#trivia)
 
-<
 ----------
-
-  
-  
 
 ## Structure
 
