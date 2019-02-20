@@ -1,5 +1,4 @@
 const vm = require('vm')
-const UserRepository = require('../../infrastructure/repositories/userRepository')
 
 const calculateDiscount = async (discountRules, { user, product }) => {
 
