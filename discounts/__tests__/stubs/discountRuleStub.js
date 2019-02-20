@@ -32,10 +32,19 @@ const rule70PercentDiscount = new DiscountRule({
     type: 'DISCOUNT'
 })
 
+const ruleWithException = new DiscountRule({
+    id: 1,
+    externalId: "RUL-DDDDDDDDDDDD",
+    name: "John",
+    rule: "throw 'BANG!'",
+    type: 'DISCOUNT'
+})
+
 
 module.exports = {
     rule10PercentDiscount,
     rule5PercentDiscount,
     rule70PercentDiscount,
-    ruleMaxDiscount15Percent
+    ruleMaxDiscount15Percent,
+    ruleWithException
 }

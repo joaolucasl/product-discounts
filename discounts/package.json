@@ -19,8 +19,10 @@
     "grpc": "1.18.0",
     "grpc-kit": "0.2.0",
     "knex": "0.16.1",
+    "mock-require": "^3.0.3",
     "mysql": "2.16.0",
-    "p-settle": "^2.1.0"
+    "p-settle": "^2.1.0",
+    "sinon": "^7.2.4"
   },
   "devDependencies": {
     "jasmine": "^3.3.1"
