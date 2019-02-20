@@ -83,7 +83,7 @@ LOCK TABLES `users` WRITE;
 
 INSERT INTO `users` (`id`, `external_id`, `first_name`, `last_name`, `date_of_birth`)
 VALUES
-	(1,'USR-AAAAAAAAAAAA','John','Doe','2000-02-15'),
+	(1,'USR-AAAAAAAAAAAA','John','Doe', CURDATE()),
 	(2,'USR-BBBBBBBBBBBB','Jane','Doe','1995-02-25'),
 	(3,'USR-CCCCCCCCCCCC','Forrest','Gump','2000-10-31'),
 	(4,'USR-DDDDDDDDDDDD','Wade','Wilson','1985-03-12');

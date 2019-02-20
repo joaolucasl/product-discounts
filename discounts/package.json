@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node --inspect=0.0.0.0 bin/www",
-    "test": "ava"
+    "test": "jasmine \"__tests__/**/*.test.js\""
   },
   "author": "",
   "license": "ISC",
@@ -23,6 +23,6 @@
     "p-settle": "^2.1.0"
   },
   "devDependencies": {
-    "jest": "^24.1.0"
+    "jasmine": "^3.3.1"
   }
 }
