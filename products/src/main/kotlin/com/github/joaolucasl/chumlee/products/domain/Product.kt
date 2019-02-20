@@ -7,7 +7,7 @@ data class Product(
     val title: String,
     val description: String
 ) {
-    fun applyDiscount(discount: Discount) {
-        price -= (price * discount.percentage).toInt()
+    fun applyDiscount(percentage: Float) {
+        price -= (price * percentage).toInt()
     }
 }

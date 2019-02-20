@@ -8,10 +8,19 @@ service DiscountService {
 
 message DiscountRequest {
     string user_id = 1;
-    string product_id = 2;
+    repeated Product products = 2;
+}
+
+message Product {
+    string id = 1;
 }
 
 message DiscountResponse {
+    repeated ProductDiscount products = 1;
+}
+
+message ProductDiscount {
     float discount = 1;
     int32 amount = 2;
+    string product_id = 3;
 }

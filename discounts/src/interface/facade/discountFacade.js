@@ -14,7 +14,7 @@ const applyDiscountToProduct = (product, discountResult) => {
     const price = new Decimal(product.price)
     const amount = Decimal.sub(price, Decimal.mul(price, discount))
 
-    return { discount, amount }
+    return { discount, amount, productId: product.externalId }
 }
 
 const getDiscount = async (userId, productIds) => {

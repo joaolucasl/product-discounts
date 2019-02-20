@@ -29,14 +29,28 @@ public final class DiscountServiceOuterClass {
         getUserIdBytes();
 
     /**
-     * <code>string product_id = 2;</code>
+     * <code>repeated .com.github.joaolucasl.chumlee.Product products = 2;</code>
      */
-    java.lang.String getProductId();
+    java.util.List<com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product> 
+        getProductsList();
     /**
-     * <code>string product_id = 2;</code>
+     * <code>repeated .com.github.joaolucasl.chumlee.Product products = 2;</code>
      */
-    com.google.protobuf.ByteString
-        getProductIdBytes();
+    com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product getProducts(int index);
+    /**
+     * <code>repeated .com.github.joaolucasl.chumlee.Product products = 2;</code>
+     */
+    int getProductsCount();
+    /**
+     * <code>repeated .com.github.joaolucasl.chumlee.Product products = 2;</code>
+     */
+    java.util.List<? extends com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductOrBuilder> 
+        getProductsOrBuilderList();
+    /**
+     * <code>repeated .com.github.joaolucasl.chumlee.Product products = 2;</code>
+     */
+    com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductOrBuilder getProductsOrBuilder(
+        int index);
   }
   /**
    * Protobuf type {@code com.github.joaolucasl.chumlee.DiscountRequest}
@@ -52,7 +66,7 @@ public final class DiscountServiceOuterClass {
     }
     private DiscountRequest() {
       userId_ = "";
-      productId_ = "";
+      products_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -86,9 +100,12 @@ public final class DiscountServiceOuterClass {
               break;
             }
             case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              productId_ = s;
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                products_ = new java.util.ArrayList<com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              products_.add(
+                  input.readMessage(com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product.parser(), extensionRegistry));
               break;
             }
             default: {
@@ -106,6 +123,9 @@ public final class DiscountServiceOuterClass {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          products_ = java.util.Collections.unmodifiableList(products_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -123,6 +143,7 @@ public final class DiscountServiceOuterClass {
               com.github.joaolucasl.chumlee.DiscountServiceOuterClass.DiscountRequest.class, com.github.joaolucasl.chumlee.DiscountServiceOuterClass.DiscountRequest.Builder.class);
     }
 
+    private int bitField0_;
     public static final int USER_ID_FIELD_NUMBER = 1;
     private volatile java.lang.Object userId_;
     /**
@@ -157,38 +178,39 @@ public final class DiscountServiceOuterClass {
       }
     }
 
-    public static final int PRODUCT_ID_FIELD_NUMBER = 2;
-    private volatile java.lang.Object productId_;
+    public static final int PRODUCTS_FIELD_NUMBER = 2;
+    private java.util.List<com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product> products_;
     /**
-     * <code>string product_id = 2;</code>
+     * <code>repeated .com.github.joaolucasl.chumlee.Product products = 2;</code>
      */
-    public java.lang.String getProductId() {
-      java.lang.Object ref = productId_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        productId_ = s;
-        return s;
-      }
+    public java.util.List<com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product> getProductsList() {
+      return products_;
     }
     /**
-     * <code>string product_id = 2;</code>
+     * <code>repeated .com.github.joaolucasl.chumlee.Product products = 2;</code>
      */
-    public com.google.protobuf.ByteString
-        getProductIdBytes() {
-      java.lang.Object ref = productId_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        productId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public java.util.List<? extends com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductOrBuilder> 
+        getProductsOrBuilderList() {
+      return products_;
+    }
+    /**
+     * <code>repeated .com.github.joaolucasl.chumlee.Product products = 2;</code>
+     */
+    public int getProductsCount() {
+      return products_.size();
+    }
+    /**
+     * <code>repeated .com.github.joaolucasl.chumlee.Product products = 2;</code>
+     */
+    public com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product getProducts(int index) {
+      return products_.get(index);
+    }
+    /**
+     * <code>repeated .com.github.joaolucasl.chumlee.Product products = 2;</code>
+     */
+    public com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductOrBuilder getProductsOrBuilder(
+        int index) {
+      return products_.get(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -208,8 +230,8 @@ public final class DiscountServiceOuterClass {
       if (!getUserIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, userId_);
       }
-      if (!getProductIdBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, productId_);
+      for (int i = 0; i < products_.size(); i++) {
+        output.writeMessage(2, products_.get(i));
       }
       unknownFields.writeTo(output);
     }
@@ -223,8 +245,9 @@ public final class DiscountServiceOuterClass {
       if (!getUserIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, userId_);
       }
-      if (!getProductIdBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, productId_);
+      for (int i = 0; i < products_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, products_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -244,8 +267,8 @@ public final class DiscountServiceOuterClass {
       boolean result = true;
       result = result && getUserId()
           .equals(other.getUserId());
-      result = result && getProductId()
-          .equals(other.getProductId());
+      result = result && getProductsList()
+          .equals(other.getProductsList());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -259,8 +282,10 @@ public final class DiscountServiceOuterClass {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + USER_ID_FIELD_NUMBER;
       hash = (53 * hash) + getUserId().hashCode();
-      hash = (37 * hash) + PRODUCT_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getProductId().hashCode();
+      if (getProductsCount() > 0) {
+        hash = (37 * hash) + PRODUCTS_FIELD_NUMBER;
+        hash = (53 * hash) + getProductsList().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -389,6 +414,7 @@ public final class DiscountServiceOuterClass {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getProductsFieldBuilder();
         }
       }
       @java.lang.Override
@@ -396,8 +422,12 @@ public final class DiscountServiceOuterClass {
         super.clear();
         userId_ = "";
 
-        productId_ = "";
-
+        if (productsBuilder_ == null) {
+          products_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        } else {
+          productsBuilder_.clear();
+        }
         return this;
       }
 
@@ -424,8 +454,19 @@ public final class DiscountServiceOuterClass {
       @java.lang.Override
       public com.github.joaolucasl.chumlee.DiscountServiceOuterClass.DiscountRequest buildPartial() {
         com.github.joaolucasl.chumlee.DiscountServiceOuterClass.DiscountRequest result = new com.github.joaolucasl.chumlee.DiscountServiceOuterClass.DiscountRequest(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
         result.userId_ = userId_;
-        result.productId_ = productId_;
+        if (productsBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+            products_ = java.util.Collections.unmodifiableList(products_);
+            bitField0_ = (bitField0_ & ~0x00000002);
+          }
+          result.products_ = products_;
+        } else {
+          result.products_ = productsBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -478,9 +519,31 @@ public final class DiscountServiceOuterClass {
           userId_ = other.userId_;
           onChanged();
         }
-        if (!other.getProductId().isEmpty()) {
-          productId_ = other.productId_;
-          onChanged();
+        if (productsBuilder_ == null) {
+          if (!other.products_.isEmpty()) {
+            if (products_.isEmpty()) {
+              products_ = other.products_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+            } else {
+              ensureProductsIsMutable();
+              products_.addAll(other.products_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.products_.isEmpty()) {
+            if (productsBuilder_.isEmpty()) {
+              productsBuilder_.dispose();
+              productsBuilder_ = null;
+              products_ = other.products_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+              productsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getProductsFieldBuilder() : null;
+            } else {
+              productsBuilder_.addAllMessages(other.products_);
+            }
+          }
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -510,6 +573,7 @@ public final class DiscountServiceOuterClass {
         }
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object userId_ = "";
       /**
@@ -580,73 +644,244 @@ public final class DiscountServiceOuterClass {
         return this;
       }
 
-      private java.lang.Object productId_ = "";
+      private java.util.List<com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product> products_ =
+        java.util.Collections.emptyList();
+      private void ensureProductsIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          products_ = new java.util.ArrayList<com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product>(products_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product, com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product.Builder, com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductOrBuilder> productsBuilder_;
+
       /**
-       * <code>string product_id = 2;</code>
+       * <code>repeated .com.github.joaolucasl.chumlee.Product products = 2;</code>
        */
-      public java.lang.String getProductId() {
-        java.lang.Object ref = productId_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          productId_ = s;
-          return s;
+      public java.util.List<com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product> getProductsList() {
+        if (productsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(products_);
         } else {
-          return (java.lang.String) ref;
+          return productsBuilder_.getMessageList();
         }
       }
       /**
-       * <code>string product_id = 2;</code>
+       * <code>repeated .com.github.joaolucasl.chumlee.Product products = 2;</code>
        */
-      public com.google.protobuf.ByteString
-          getProductIdBytes() {
-        java.lang.Object ref = productId_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          productId_ = b;
-          return b;
+      public int getProductsCount() {
+        if (productsBuilder_ == null) {
+          return products_.size();
         } else {
-          return (com.google.protobuf.ByteString) ref;
+          return productsBuilder_.getCount();
         }
       }
       /**
-       * <code>string product_id = 2;</code>
+       * <code>repeated .com.github.joaolucasl.chumlee.Product products = 2;</code>
        */
-      public Builder setProductId(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        productId_ = value;
-        onChanged();
+      public com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product getProducts(int index) {
+        if (productsBuilder_ == null) {
+          return products_.get(index);
+        } else {
+          return productsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .com.github.joaolucasl.chumlee.Product products = 2;</code>
+       */
+      public Builder setProducts(
+          int index, com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product value) {
+        if (productsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureProductsIsMutable();
+          products_.set(index, value);
+          onChanged();
+        } else {
+          productsBuilder_.setMessage(index, value);
+        }
         return this;
       }
       /**
-       * <code>string product_id = 2;</code>
+       * <code>repeated .com.github.joaolucasl.chumlee.Product products = 2;</code>
        */
-      public Builder clearProductId() {
-        
-        productId_ = getDefaultInstance().getProductId();
-        onChanged();
+      public Builder setProducts(
+          int index, com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product.Builder builderForValue) {
+        if (productsBuilder_ == null) {
+          ensureProductsIsMutable();
+          products_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          productsBuilder_.setMessage(index, builderForValue.build());
+        }
         return this;
       }
       /**
-       * <code>string product_id = 2;</code>
+       * <code>repeated .com.github.joaolucasl.chumlee.Product products = 2;</code>
        */
-      public Builder setProductIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        productId_ = value;
-        onChanged();
+      public Builder addProducts(com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product value) {
+        if (productsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureProductsIsMutable();
+          products_.add(value);
+          onChanged();
+        } else {
+          productsBuilder_.addMessage(value);
+        }
         return this;
+      }
+      /**
+       * <code>repeated .com.github.joaolucasl.chumlee.Product products = 2;</code>
+       */
+      public Builder addProducts(
+          int index, com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product value) {
+        if (productsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureProductsIsMutable();
+          products_.add(index, value);
+          onChanged();
+        } else {
+          productsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.github.joaolucasl.chumlee.Product products = 2;</code>
+       */
+      public Builder addProducts(
+          com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product.Builder builderForValue) {
+        if (productsBuilder_ == null) {
+          ensureProductsIsMutable();
+          products_.add(builderForValue.build());
+          onChanged();
+        } else {
+          productsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.github.joaolucasl.chumlee.Product products = 2;</code>
+       */
+      public Builder addProducts(
+          int index, com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product.Builder builderForValue) {
+        if (productsBuilder_ == null) {
+          ensureProductsIsMutable();
+          products_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          productsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.github.joaolucasl.chumlee.Product products = 2;</code>
+       */
+      public Builder addAllProducts(
+          java.lang.Iterable<? extends com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product> values) {
+        if (productsBuilder_ == null) {
+          ensureProductsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, products_);
+          onChanged();
+        } else {
+          productsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.github.joaolucasl.chumlee.Product products = 2;</code>
+       */
+      public Builder clearProducts() {
+        if (productsBuilder_ == null) {
+          products_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+          onChanged();
+        } else {
+          productsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.github.joaolucasl.chumlee.Product products = 2;</code>
+       */
+      public Builder removeProducts(int index) {
+        if (productsBuilder_ == null) {
+          ensureProductsIsMutable();
+          products_.remove(index);
+          onChanged();
+        } else {
+          productsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.github.joaolucasl.chumlee.Product products = 2;</code>
+       */
+      public com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product.Builder getProductsBuilder(
+          int index) {
+        return getProductsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .com.github.joaolucasl.chumlee.Product products = 2;</code>
+       */
+      public com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductOrBuilder getProductsOrBuilder(
+          int index) {
+        if (productsBuilder_ == null) {
+          return products_.get(index);  } else {
+          return productsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .com.github.joaolucasl.chumlee.Product products = 2;</code>
+       */
+      public java.util.List<? extends com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductOrBuilder> 
+           getProductsOrBuilderList() {
+        if (productsBuilder_ != null) {
+          return productsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(products_);
+        }
+      }
+      /**
+       * <code>repeated .com.github.joaolucasl.chumlee.Product products = 2;</code>
+       */
+      public com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product.Builder addProductsBuilder() {
+        return getProductsFieldBuilder().addBuilder(
+            com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.github.joaolucasl.chumlee.Product products = 2;</code>
+       */
+      public com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product.Builder addProductsBuilder(
+          int index) {
+        return getProductsFieldBuilder().addBuilder(
+            index, com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.github.joaolucasl.chumlee.Product products = 2;</code>
+       */
+      public java.util.List<com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product.Builder> 
+           getProductsBuilderList() {
+        return getProductsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product, com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product.Builder, com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductOrBuilder> 
+          getProductsFieldBuilder() {
+        if (productsBuilder_ == null) {
+          productsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product, com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product.Builder, com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductOrBuilder>(
+                  products_,
+                  ((bitField0_ & 0x00000002) == 0x00000002),
+                  getParentForChildren(),
+                  isClean());
+          products_ = null;
+        }
+        return productsBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -701,19 +936,583 @@ public final class DiscountServiceOuterClass {
 
   }
 
+  public interface ProductOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.github.joaolucasl.chumlee.Product)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string id = 1;</code>
+     */
+    java.lang.String getId();
+    /**
+     * <code>string id = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getIdBytes();
+  }
+  /**
+   * Protobuf type {@code com.github.joaolucasl.chumlee.Product}
+   */
+  public  static final class Product extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.github.joaolucasl.chumlee.Product)
+      ProductOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Product.newBuilder() to construct.
+    private Product(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Product() {
+      id_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Product(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              id_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.github.joaolucasl.chumlee.DiscountServiceOuterClass.internal_static_com_github_joaolucasl_chumlee_Product_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.github.joaolucasl.chumlee.DiscountServiceOuterClass.internal_static_com_github_joaolucasl_chumlee_Product_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product.class, com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product.Builder.class);
+    }
+
+    public static final int ID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object id_;
+    /**
+     * <code>string id = 1;</code>
+     */
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string id = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product)) {
+        return super.equals(obj);
+      }
+      com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product other = (com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product) obj;
+
+      boolean result = true;
+      result = result && getId()
+          .equals(other.getId());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + getId().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.github.joaolucasl.chumlee.Product}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.github.joaolucasl.chumlee.Product)
+        com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.github.joaolucasl.chumlee.DiscountServiceOuterClass.internal_static_com_github_joaolucasl_chumlee_Product_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.github.joaolucasl.chumlee.DiscountServiceOuterClass.internal_static_com_github_joaolucasl_chumlee_Product_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product.class, com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product.Builder.class);
+      }
+
+      // Construct using com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        id_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.github.joaolucasl.chumlee.DiscountServiceOuterClass.internal_static_com_github_joaolucasl_chumlee_Product_descriptor;
+      }
+
+      @java.lang.Override
+      public com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product getDefaultInstanceForType() {
+        return com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product build() {
+        com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product buildPartial() {
+        com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product result = new com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product(this);
+        result.id_ = id_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product) {
+          return mergeFrom((com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product other) {
+        if (other == com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product.getDefaultInstance()) return this;
+        if (!other.getId().isEmpty()) {
+          id_ = other.id_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object id_ = "";
+      /**
+       * <code>string id = 1;</code>
+       */
+      public java.lang.String getId() {
+        java.lang.Object ref = id_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          id_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string id = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getIdBytes() {
+        java.lang.Object ref = id_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          id_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string id = 1;</code>
+       */
+      public Builder setId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 1;</code>
+       */
+      public Builder clearId() {
+        
+        id_ = getDefaultInstance().getId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 1;</code>
+       */
+      public Builder setIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.github.joaolucasl.chumlee.Product)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.github.joaolucasl.chumlee.Product)
+    private static final com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product();
+    }
+
+    public static com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Product>
+        PARSER = new com.google.protobuf.AbstractParser<Product>() {
+      @java.lang.Override
+      public Product parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Product(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Product> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Product> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.github.joaolucasl.chumlee.DiscountServiceOuterClass.Product getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface DiscountResponseOrBuilder extends
       // @@protoc_insertion_point(interface_extends:com.github.joaolucasl.chumlee.DiscountResponse)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>float discount = 1;</code>
+     * <code>repeated .com.github.joaolucasl.chumlee.ProductDiscount products = 1;</code>
      */
-    float getDiscount();
-
+    java.util.List<com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount> 
+        getProductsList();
     /**
-     * <code>int32 amount = 2;</code>
+     * <code>repeated .com.github.joaolucasl.chumlee.ProductDiscount products = 1;</code>
      */
-    int getAmount();
+    com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount getProducts(int index);
+    /**
+     * <code>repeated .com.github.joaolucasl.chumlee.ProductDiscount products = 1;</code>
+     */
+    int getProductsCount();
+    /**
+     * <code>repeated .com.github.joaolucasl.chumlee.ProductDiscount products = 1;</code>
+     */
+    java.util.List<? extends com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscountOrBuilder> 
+        getProductsOrBuilderList();
+    /**
+     * <code>repeated .com.github.joaolucasl.chumlee.ProductDiscount products = 1;</code>
+     */
+    com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscountOrBuilder getProductsOrBuilder(
+        int index);
   }
   /**
    * Protobuf type {@code com.github.joaolucasl.chumlee.DiscountResponse}
@@ -728,8 +1527,7 @@ public final class DiscountServiceOuterClass {
       super(builder);
     }
     private DiscountResponse() {
-      discount_ = 0F;
-      amount_ = 0;
+      products_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -756,14 +1554,13 @@ public final class DiscountServiceOuterClass {
             case 0:
               done = true;
               break;
-            case 13: {
-
-              discount_ = input.readFloat();
-              break;
-            }
-            case 16: {
-
-              amount_ = input.readInt32();
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                products_ = new java.util.ArrayList<com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              products_.add(
+                  input.readMessage(com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount.parser(), extensionRegistry));
               break;
             }
             default: {
@@ -781,6 +1578,9 @@ public final class DiscountServiceOuterClass {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          products_ = java.util.Collections.unmodifiableList(products_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -798,22 +1598,39 @@ public final class DiscountServiceOuterClass {
               com.github.joaolucasl.chumlee.DiscountServiceOuterClass.DiscountResponse.class, com.github.joaolucasl.chumlee.DiscountServiceOuterClass.DiscountResponse.Builder.class);
     }
 
-    public static final int DISCOUNT_FIELD_NUMBER = 1;
-    private float discount_;
+    public static final int PRODUCTS_FIELD_NUMBER = 1;
+    private java.util.List<com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount> products_;
     /**
-     * <code>float discount = 1;</code>
+     * <code>repeated .com.github.joaolucasl.chumlee.ProductDiscount products = 1;</code>
      */
-    public float getDiscount() {
-      return discount_;
+    public java.util.List<com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount> getProductsList() {
+      return products_;
     }
-
-    public static final int AMOUNT_FIELD_NUMBER = 2;
-    private int amount_;
     /**
-     * <code>int32 amount = 2;</code>
+     * <code>repeated .com.github.joaolucasl.chumlee.ProductDiscount products = 1;</code>
      */
-    public int getAmount() {
-      return amount_;
+    public java.util.List<? extends com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscountOrBuilder> 
+        getProductsOrBuilderList() {
+      return products_;
+    }
+    /**
+     * <code>repeated .com.github.joaolucasl.chumlee.ProductDiscount products = 1;</code>
+     */
+    public int getProductsCount() {
+      return products_.size();
+    }
+    /**
+     * <code>repeated .com.github.joaolucasl.chumlee.ProductDiscount products = 1;</code>
+     */
+    public com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount getProducts(int index) {
+      return products_.get(index);
+    }
+    /**
+     * <code>repeated .com.github.joaolucasl.chumlee.ProductDiscount products = 1;</code>
+     */
+    public com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscountOrBuilder getProductsOrBuilder(
+        int index) {
+      return products_.get(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -830,11 +1647,8 @@ public final class DiscountServiceOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (discount_ != 0F) {
-        output.writeFloat(1, discount_);
-      }
-      if (amount_ != 0) {
-        output.writeInt32(2, amount_);
+      for (int i = 0; i < products_.size(); i++) {
+        output.writeMessage(1, products_.get(i));
       }
       unknownFields.writeTo(output);
     }
@@ -845,13 +1659,9 @@ public final class DiscountServiceOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (discount_ != 0F) {
+      for (int i = 0; i < products_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeFloatSize(1, discount_);
-      }
-      if (amount_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, amount_);
+          .computeMessageSize(1, products_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -869,12 +1679,8 @@ public final class DiscountServiceOuterClass {
       com.github.joaolucasl.chumlee.DiscountServiceOuterClass.DiscountResponse other = (com.github.joaolucasl.chumlee.DiscountServiceOuterClass.DiscountResponse) obj;
 
       boolean result = true;
-      result = result && (
-          java.lang.Float.floatToIntBits(getDiscount())
-          == java.lang.Float.floatToIntBits(
-              other.getDiscount()));
-      result = result && (getAmount()
-          == other.getAmount());
+      result = result && getProductsList()
+          .equals(other.getProductsList());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -886,11 +1692,10 @@ public final class DiscountServiceOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + DISCOUNT_FIELD_NUMBER;
-      hash = (53 * hash) + java.lang.Float.floatToIntBits(
-          getDiscount());
-      hash = (37 * hash) + AMOUNT_FIELD_NUMBER;
-      hash = (53 * hash) + getAmount();
+      if (getProductsCount() > 0) {
+        hash = (37 * hash) + PRODUCTS_FIELD_NUMBER;
+        hash = (53 * hash) + getProductsList().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1019,15 +1824,18 @@ public final class DiscountServiceOuterClass {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getProductsFieldBuilder();
         }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        discount_ = 0F;
-
-        amount_ = 0;
-
+        if (productsBuilder_ == null) {
+          products_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          productsBuilder_.clear();
+        }
         return this;
       }
 
@@ -1054,8 +1862,16 @@ public final class DiscountServiceOuterClass {
       @java.lang.Override
       public com.github.joaolucasl.chumlee.DiscountServiceOuterClass.DiscountResponse buildPartial() {
         com.github.joaolucasl.chumlee.DiscountServiceOuterClass.DiscountResponse result = new com.github.joaolucasl.chumlee.DiscountServiceOuterClass.DiscountResponse(this);
-        result.discount_ = discount_;
-        result.amount_ = amount_;
+        int from_bitField0_ = bitField0_;
+        if (productsBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            products_ = java.util.Collections.unmodifiableList(products_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.products_ = products_;
+        } else {
+          result.products_ = productsBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -1104,11 +1920,31 @@ public final class DiscountServiceOuterClass {
 
       public Builder mergeFrom(com.github.joaolucasl.chumlee.DiscountServiceOuterClass.DiscountResponse other) {
         if (other == com.github.joaolucasl.chumlee.DiscountServiceOuterClass.DiscountResponse.getDefaultInstance()) return this;
-        if (other.getDiscount() != 0F) {
-          setDiscount(other.getDiscount());
-        }
-        if (other.getAmount() != 0) {
-          setAmount(other.getAmount());
+        if (productsBuilder_ == null) {
+          if (!other.products_.isEmpty()) {
+            if (products_.isEmpty()) {
+              products_ = other.products_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureProductsIsMutable();
+              products_.addAll(other.products_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.products_.isEmpty()) {
+            if (productsBuilder_.isEmpty()) {
+              productsBuilder_.dispose();
+              productsBuilder_ = null;
+              products_ = other.products_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              productsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getProductsFieldBuilder() : null;
+            } else {
+              productsBuilder_.addAllMessages(other.products_);
+            }
+          }
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1130,6 +1966,805 @@ public final class DiscountServiceOuterClass {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (com.github.joaolucasl.chumlee.DiscountServiceOuterClass.DiscountResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount> products_ =
+        java.util.Collections.emptyList();
+      private void ensureProductsIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          products_ = new java.util.ArrayList<com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount>(products_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount, com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount.Builder, com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscountOrBuilder> productsBuilder_;
+
+      /**
+       * <code>repeated .com.github.joaolucasl.chumlee.ProductDiscount products = 1;</code>
+       */
+      public java.util.List<com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount> getProductsList() {
+        if (productsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(products_);
+        } else {
+          return productsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .com.github.joaolucasl.chumlee.ProductDiscount products = 1;</code>
+       */
+      public int getProductsCount() {
+        if (productsBuilder_ == null) {
+          return products_.size();
+        } else {
+          return productsBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .com.github.joaolucasl.chumlee.ProductDiscount products = 1;</code>
+       */
+      public com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount getProducts(int index) {
+        if (productsBuilder_ == null) {
+          return products_.get(index);
+        } else {
+          return productsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .com.github.joaolucasl.chumlee.ProductDiscount products = 1;</code>
+       */
+      public Builder setProducts(
+          int index, com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount value) {
+        if (productsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureProductsIsMutable();
+          products_.set(index, value);
+          onChanged();
+        } else {
+          productsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.github.joaolucasl.chumlee.ProductDiscount products = 1;</code>
+       */
+      public Builder setProducts(
+          int index, com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount.Builder builderForValue) {
+        if (productsBuilder_ == null) {
+          ensureProductsIsMutable();
+          products_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          productsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.github.joaolucasl.chumlee.ProductDiscount products = 1;</code>
+       */
+      public Builder addProducts(com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount value) {
+        if (productsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureProductsIsMutable();
+          products_.add(value);
+          onChanged();
+        } else {
+          productsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.github.joaolucasl.chumlee.ProductDiscount products = 1;</code>
+       */
+      public Builder addProducts(
+          int index, com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount value) {
+        if (productsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureProductsIsMutable();
+          products_.add(index, value);
+          onChanged();
+        } else {
+          productsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.github.joaolucasl.chumlee.ProductDiscount products = 1;</code>
+       */
+      public Builder addProducts(
+          com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount.Builder builderForValue) {
+        if (productsBuilder_ == null) {
+          ensureProductsIsMutable();
+          products_.add(builderForValue.build());
+          onChanged();
+        } else {
+          productsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.github.joaolucasl.chumlee.ProductDiscount products = 1;</code>
+       */
+      public Builder addProducts(
+          int index, com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount.Builder builderForValue) {
+        if (productsBuilder_ == null) {
+          ensureProductsIsMutable();
+          products_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          productsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.github.joaolucasl.chumlee.ProductDiscount products = 1;</code>
+       */
+      public Builder addAllProducts(
+          java.lang.Iterable<? extends com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount> values) {
+        if (productsBuilder_ == null) {
+          ensureProductsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, products_);
+          onChanged();
+        } else {
+          productsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.github.joaolucasl.chumlee.ProductDiscount products = 1;</code>
+       */
+      public Builder clearProducts() {
+        if (productsBuilder_ == null) {
+          products_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          productsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.github.joaolucasl.chumlee.ProductDiscount products = 1;</code>
+       */
+      public Builder removeProducts(int index) {
+        if (productsBuilder_ == null) {
+          ensureProductsIsMutable();
+          products_.remove(index);
+          onChanged();
+        } else {
+          productsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.github.joaolucasl.chumlee.ProductDiscount products = 1;</code>
+       */
+      public com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount.Builder getProductsBuilder(
+          int index) {
+        return getProductsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .com.github.joaolucasl.chumlee.ProductDiscount products = 1;</code>
+       */
+      public com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscountOrBuilder getProductsOrBuilder(
+          int index) {
+        if (productsBuilder_ == null) {
+          return products_.get(index);  } else {
+          return productsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .com.github.joaolucasl.chumlee.ProductDiscount products = 1;</code>
+       */
+      public java.util.List<? extends com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscountOrBuilder> 
+           getProductsOrBuilderList() {
+        if (productsBuilder_ != null) {
+          return productsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(products_);
+        }
+      }
+      /**
+       * <code>repeated .com.github.joaolucasl.chumlee.ProductDiscount products = 1;</code>
+       */
+      public com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount.Builder addProductsBuilder() {
+        return getProductsFieldBuilder().addBuilder(
+            com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.github.joaolucasl.chumlee.ProductDiscount products = 1;</code>
+       */
+      public com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount.Builder addProductsBuilder(
+          int index) {
+        return getProductsFieldBuilder().addBuilder(
+            index, com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.github.joaolucasl.chumlee.ProductDiscount products = 1;</code>
+       */
+      public java.util.List<com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount.Builder> 
+           getProductsBuilderList() {
+        return getProductsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount, com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount.Builder, com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscountOrBuilder> 
+          getProductsFieldBuilder() {
+        if (productsBuilder_ == null) {
+          productsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount, com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount.Builder, com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscountOrBuilder>(
+                  products_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          products_ = null;
+        }
+        return productsBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.github.joaolucasl.chumlee.DiscountResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.github.joaolucasl.chumlee.DiscountResponse)
+    private static final com.github.joaolucasl.chumlee.DiscountServiceOuterClass.DiscountResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.github.joaolucasl.chumlee.DiscountServiceOuterClass.DiscountResponse();
+    }
+
+    public static com.github.joaolucasl.chumlee.DiscountServiceOuterClass.DiscountResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<DiscountResponse>
+        PARSER = new com.google.protobuf.AbstractParser<DiscountResponse>() {
+      @java.lang.Override
+      public DiscountResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new DiscountResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<DiscountResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DiscountResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.github.joaolucasl.chumlee.DiscountServiceOuterClass.DiscountResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ProductDiscountOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.github.joaolucasl.chumlee.ProductDiscount)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>float discount = 1;</code>
+     */
+    float getDiscount();
+
+    /**
+     * <code>int32 amount = 2;</code>
+     */
+    int getAmount();
+
+    /**
+     * <code>string product_id = 3;</code>
+     */
+    java.lang.String getProductId();
+    /**
+     * <code>string product_id = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getProductIdBytes();
+  }
+  /**
+   * Protobuf type {@code com.github.joaolucasl.chumlee.ProductDiscount}
+   */
+  public  static final class ProductDiscount extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.github.joaolucasl.chumlee.ProductDiscount)
+      ProductDiscountOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ProductDiscount.newBuilder() to construct.
+    private ProductDiscount(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ProductDiscount() {
+      discount_ = 0F;
+      amount_ = 0;
+      productId_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ProductDiscount(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 13: {
+
+              discount_ = input.readFloat();
+              break;
+            }
+            case 16: {
+
+              amount_ = input.readInt32();
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              productId_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.github.joaolucasl.chumlee.DiscountServiceOuterClass.internal_static_com_github_joaolucasl_chumlee_ProductDiscount_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.github.joaolucasl.chumlee.DiscountServiceOuterClass.internal_static_com_github_joaolucasl_chumlee_ProductDiscount_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount.class, com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount.Builder.class);
+    }
+
+    public static final int DISCOUNT_FIELD_NUMBER = 1;
+    private float discount_;
+    /**
+     * <code>float discount = 1;</code>
+     */
+    public float getDiscount() {
+      return discount_;
+    }
+
+    public static final int AMOUNT_FIELD_NUMBER = 2;
+    private int amount_;
+    /**
+     * <code>int32 amount = 2;</code>
+     */
+    public int getAmount() {
+      return amount_;
+    }
+
+    public static final int PRODUCT_ID_FIELD_NUMBER = 3;
+    private volatile java.lang.Object productId_;
+    /**
+     * <code>string product_id = 3;</code>
+     */
+    public java.lang.String getProductId() {
+      java.lang.Object ref = productId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        productId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string product_id = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getProductIdBytes() {
+      java.lang.Object ref = productId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        productId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (discount_ != 0F) {
+        output.writeFloat(1, discount_);
+      }
+      if (amount_ != 0) {
+        output.writeInt32(2, amount_);
+      }
+      if (!getProductIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, productId_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (discount_ != 0F) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFloatSize(1, discount_);
+      }
+      if (amount_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, amount_);
+      }
+      if (!getProductIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, productId_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount)) {
+        return super.equals(obj);
+      }
+      com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount other = (com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount) obj;
+
+      boolean result = true;
+      result = result && (
+          java.lang.Float.floatToIntBits(getDiscount())
+          == java.lang.Float.floatToIntBits(
+              other.getDiscount()));
+      result = result && (getAmount()
+          == other.getAmount());
+      result = result && getProductId()
+          .equals(other.getProductId());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + DISCOUNT_FIELD_NUMBER;
+      hash = (53 * hash) + java.lang.Float.floatToIntBits(
+          getDiscount());
+      hash = (37 * hash) + AMOUNT_FIELD_NUMBER;
+      hash = (53 * hash) + getAmount();
+      hash = (37 * hash) + PRODUCT_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getProductId().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.github.joaolucasl.chumlee.ProductDiscount}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.github.joaolucasl.chumlee.ProductDiscount)
+        com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscountOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.github.joaolucasl.chumlee.DiscountServiceOuterClass.internal_static_com_github_joaolucasl_chumlee_ProductDiscount_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.github.joaolucasl.chumlee.DiscountServiceOuterClass.internal_static_com_github_joaolucasl_chumlee_ProductDiscount_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount.class, com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount.Builder.class);
+      }
+
+      // Construct using com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        discount_ = 0F;
+
+        amount_ = 0;
+
+        productId_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.github.joaolucasl.chumlee.DiscountServiceOuterClass.internal_static_com_github_joaolucasl_chumlee_ProductDiscount_descriptor;
+      }
+
+      @java.lang.Override
+      public com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount getDefaultInstanceForType() {
+        return com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount build() {
+        com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount buildPartial() {
+        com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount result = new com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount(this);
+        result.discount_ = discount_;
+        result.amount_ = amount_;
+        result.productId_ = productId_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount) {
+          return mergeFrom((com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount other) {
+        if (other == com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount.getDefaultInstance()) return this;
+        if (other.getDiscount() != 0F) {
+          setDiscount(other.getDiscount());
+        }
+        if (other.getAmount() != 0) {
+          setAmount(other.getAmount());
+        }
+        if (!other.getProductId().isEmpty()) {
+          productId_ = other.productId_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -1190,6 +2825,75 @@ public final class DiscountServiceOuterClass {
         onChanged();
         return this;
       }
+
+      private java.lang.Object productId_ = "";
+      /**
+       * <code>string product_id = 3;</code>
+       */
+      public java.lang.String getProductId() {
+        java.lang.Object ref = productId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          productId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string product_id = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getProductIdBytes() {
+        java.lang.Object ref = productId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          productId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string product_id = 3;</code>
+       */
+      public Builder setProductId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        productId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string product_id = 3;</code>
+       */
+      public Builder clearProductId() {
+        
+        productId_ = getDefaultInstance().getProductId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string product_id = 3;</code>
+       */
+      public Builder setProductIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        productId_ = value;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1203,41 +2907,41 @@ public final class DiscountServiceOuterClass {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:com.github.joaolucasl.chumlee.DiscountResponse)
+      // @@protoc_insertion_point(builder_scope:com.github.joaolucasl.chumlee.ProductDiscount)
     }
 
-    // @@protoc_insertion_point(class_scope:com.github.joaolucasl.chumlee.DiscountResponse)
-    private static final com.github.joaolucasl.chumlee.DiscountServiceOuterClass.DiscountResponse DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:com.github.joaolucasl.chumlee.ProductDiscount)
+    private static final com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.github.joaolucasl.chumlee.DiscountServiceOuterClass.DiscountResponse();
+      DEFAULT_INSTANCE = new com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount();
     }
 
-    public static com.github.joaolucasl.chumlee.DiscountServiceOuterClass.DiscountResponse getDefaultInstance() {
+    public static com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<DiscountResponse>
-        PARSER = new com.google.protobuf.AbstractParser<DiscountResponse>() {
+    private static final com.google.protobuf.Parser<ProductDiscount>
+        PARSER = new com.google.protobuf.AbstractParser<ProductDiscount>() {
       @java.lang.Override
-      public DiscountResponse parsePartialFrom(
+      public ProductDiscount parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DiscountResponse(input, extensionRegistry);
+        return new ProductDiscount(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<DiscountResponse> parser() {
+    public static com.google.protobuf.Parser<ProductDiscount> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<DiscountResponse> getParserForType() {
+    public com.google.protobuf.Parser<ProductDiscount> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.github.joaolucasl.chumlee.DiscountServiceOuterClass.DiscountResponse getDefaultInstanceForType() {
+    public com.github.joaolucasl.chumlee.DiscountServiceOuterClass.ProductDiscount getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1249,10 +2953,20 @@ public final class DiscountServiceOuterClass {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_github_joaolucasl_chumlee_DiscountRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_github_joaolucasl_chumlee_Product_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_github_joaolucasl_chumlee_Product_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_github_joaolucasl_chumlee_DiscountResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_github_joaolucasl_chumlee_DiscountResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_github_joaolucasl_chumlee_ProductDiscount_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_github_joaolucasl_chumlee_ProductDiscount_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -1263,13 +2977,17 @@ public final class DiscountServiceOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\025DiscountService.proto\022\035com.github.joao" +
-      "lucasl.chumlee\"6\n\017DiscountRequest\022\017\n\007use" +
-      "r_id\030\001 \001(\t\022\022\n\nproduct_id\030\002 \001(\t\"4\n\020Discou" +
-      "ntResponse\022\020\n\010discount\030\001 \001(\002\022\016\n\006amount\030\002" +
-      " \001(\0052\203\001\n\017DiscountService\022p\n\013GetDiscount\022" +
-      "..com.github.joaolucasl.chumlee.Discount" +
-      "Request\032/.com.github.joaolucasl.chumlee." +
-      "DiscountResponse\"\000b\006proto3"
+      "lucasl.chumlee\"\\\n\017DiscountRequest\022\017\n\007use" +
+      "r_id\030\001 \001(\t\0228\n\010products\030\002 \003(\0132&.com.githu" +
+      "b.joaolucasl.chumlee.Product\"\025\n\007Product\022" +
+      "\n\n\002id\030\001 \001(\t\"T\n\020DiscountResponse\022@\n\010produ" +
+      "cts\030\001 \003(\0132..com.github.joaolucasl.chumle" +
+      "e.ProductDiscount\"G\n\017ProductDiscount\022\020\n\010" +
+      "discount\030\001 \001(\002\022\016\n\006amount\030\002 \001(\005\022\022\n\nproduc" +
+      "t_id\030\003 \001(\t2\203\001\n\017DiscountService\022p\n\013GetDis" +
+      "count\022..com.github.joaolucasl.chumlee.Di" +
+      "scountRequest\032/.com.github.joaolucasl.ch" +
+      "umlee.DiscountResponse\"\000b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1288,13 +3006,25 @@ public final class DiscountServiceOuterClass {
     internal_static_com_github_joaolucasl_chumlee_DiscountRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_joaolucasl_chumlee_DiscountRequest_descriptor,
-        new java.lang.String[] { "UserId", "ProductId", });
-    internal_static_com_github_joaolucasl_chumlee_DiscountResponse_descriptor =
+        new java.lang.String[] { "UserId", "Products", });
+    internal_static_com_github_joaolucasl_chumlee_Product_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_com_github_joaolucasl_chumlee_Product_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_github_joaolucasl_chumlee_Product_descriptor,
+        new java.lang.String[] { "Id", });
+    internal_static_com_github_joaolucasl_chumlee_DiscountResponse_descriptor =
+      getDescriptor().getMessageTypes().get(2);
     internal_static_com_github_joaolucasl_chumlee_DiscountResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_joaolucasl_chumlee_DiscountResponse_descriptor,
-        new java.lang.String[] { "Discount", "Amount", });
+        new java.lang.String[] { "Products", });
+    internal_static_com_github_joaolucasl_chumlee_ProductDiscount_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_com_github_joaolucasl_chumlee_ProductDiscount_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_github_joaolucasl_chumlee_ProductDiscount_descriptor,
+        new java.lang.String[] { "Discount", "Amount", "ProductId", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -7,6 +7,6 @@ import org.jdbi.v3.sqlobject.statement.SqlQuery
 
 @RegisterBeanMapper(ProductMapper::class)
 interface ProductsRepository {
-    @SqlQuery("SELECT * FROM products ORDER BY id DESC")
+    @SqlQuery("SELECT * FROM products ORDER BY id ASC")
     fun findAll(): List<Product>
 }
