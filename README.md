@@ -115,9 +115,9 @@ It was a project requirement I received for this, and also it was a great opport
   
 
 ## Running
-
-You can run this project easily with Docker-Compose. Rename `discounts/.env.example` to `.env`, and then run `docker-compose up --build` and both services will be started alongside the database. The `env` file will have the default database credentials and environment variables.
-
+First, generate a build for `products`, by running `./gradlew clean build shadowJar`. After that
+Rename `discounts/.env.example` to `.env`. The `env` file will have the default database credentials and environment variables.
+Then run `docker-compose up --build` and both services will be started alongside the database. 
   
 
 ## Testing
