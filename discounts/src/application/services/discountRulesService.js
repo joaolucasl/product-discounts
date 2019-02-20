@@ -7,6 +7,7 @@ const calculateDiscount = async (discountRules, { user, product }) => {
 
     const finalDiscount = calculateFinalDiscount(discounts)
 
+    
     return finalDiscount
 }
 
@@ -14,7 +15,7 @@ const calculateFinalDiscount = (discountParameters) => {
     // If we have more than one MAX_DISCOUNT, we assume the greatest percentage as the right one
     const maxDiscount = discountParameters
         .filter(params => params.type == 'MAX_DISCOUNT')
-        .reduce((currentMax, params) => Math.max(currentMax, params.percentage), 0)
+        .reduce((currentMax, params) => Math.min(currentMax, params.percentage), 100)
 
     const discount = discountParameters
         .filter(params => params.type == 'DISCOUNT')
